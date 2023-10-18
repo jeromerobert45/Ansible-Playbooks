@@ -1,0 +1,13 @@
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+  tasks: 
+  - name: installing the packages
+    yum:
+      name: "{{item}}" #jinja
+      state: present
+    loop:
+      - unzip
+      - mysql
+      - php
+      - newtoolup
